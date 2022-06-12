@@ -31,8 +31,8 @@ export const InventarioView = () => {
                     <div className="card">
                       <img src={inventario.foto} className="card-img-top" alt="..." />
                       <div className="card-body">
-                        <h5 className="card-title">{inventario.serial}</h5>
-                        <p className="card-text">{inventario.descripcion}</p>
+                        <h5 className="card-title">Serial: {inventario.serial}</h5>
+                        <p className="card-text">Descripción: {inventario.descripcion}</p>
                       </div>
                     </div>
                   </div>

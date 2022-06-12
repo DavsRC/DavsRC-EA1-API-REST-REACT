@@ -32,8 +32,7 @@ export const MarcaView = () => {
                     <div className="card">
                       <img src={marca.foto} className="card-img-top" alt="..." />
                       <div className="card-body">
-                        <h5 className="card-title">{marca.nombre}</h5>
-                        <p className="card-text">{marca.estado}</p>
+                        <h5 className="card-title">Marca: {marca.nombre}</h5>
                       </div>
                     </div>
                   </div>
