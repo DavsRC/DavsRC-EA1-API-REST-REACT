@@ -30,9 +30,11 @@ export const InventarioView = () => {
                   <div className="col" key={inventario._id}>
                     <div className="card">
                       <img src={inventario.foto} className="card-img-top" alt="..." />
-                      <div className="card-body">
+                      <div className="card-body">                        
+                        <h4 className="card-title">Especificaciones</h4>
                         <h5 className="card-title">Serial: {inventario.serial}</h5>
-                        <p className="card-text">Descripción: {inventario.descripcion}</p>
+                        <hr />
+                        <p className="card-text">{inventario.descripcion}</p>
                       </div>
                     </div>
                   </div>
