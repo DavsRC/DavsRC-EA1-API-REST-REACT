@@ -1,7 +1,7 @@
-import { axiosInstance } from '../Helpers/axios-config';
+import { axiosConfig } from '../Helpers/axios-config';
 
 const getInventarios = () => {
-    return axiosInstance.get('inventario/listar',{
+    return axiosConfig.get('inventario/listar',{
         headers:{
             'Content-type': 'application/json'
         }
@@ -9,7 +9,7 @@ const getInventarios = () => {
 }
 
 const crearInventarios = (data) => {
-    return axiosInstance.post('inventario/guardar',data,{
+    return axiosConfig.post('inventario/guardar',data,{
         headers:{
             'Content-type': 'application/json'
         }
@@ -17,7 +17,7 @@ const crearInventarios = (data) => {
 }
 
 const editInventarios = (inventarioId, data) => {
-    return axiosInstance.put(`inventario/editar/${inventarioId}`,data,{
+    return axiosConfig.put(`inventario/editar/${inventarioId}`,data,{
         headers:{
             'Content-type': 'application/json'
         }
