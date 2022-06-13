@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { getInventarios } from "../../Services/InventarioService";
 import { InventarioCard } from "./InventarioCard";
+import { InventariosNew } from "./InventariosNew";
 
 export const InventarioView = () => {
   const [inventarios, setInventarios] = useState([]);
+  const [openModal, setOpenModal] = useState(false);
 
   const listarInventarios = async () => {
     try {
@@ -18,7 +20,9 @@ export const InventarioView = () => {
     listarInventarios();
   }, []);
 
-  listarInventarios();
+  const handleOpenModal = () =>{
+    setOpenModal(!openModal)
+  }
 
   return (
     <div className="container">
@@ -29,9 +33,11 @@ export const InventarioView = () => {
           );
         })}
       </div>
-      <button className="btn btn-primary fab">
-        <i className="fa-solid fa-plus"></i>
-      </button>
+      {openModal ? <InventariosNew /> : 
+        (<button className="btn btn-primary fab" onClick={handleOpenModal}>
+          <i className="fa-solid fa-plus"></i>
+        </button>)
+      }
     </div>
   );
 };
