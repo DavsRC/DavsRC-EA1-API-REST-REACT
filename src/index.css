@@ -33,7 +33,6 @@ body{
 .fab :hover{
     box-shadow: 0 80px 16px 0 rgb(0, 0, 0, 0.2);
 }
-<<<<<<< HEAD
 
 .sideBar{
     position: fixed;
@@ -44,6 +43,5 @@ body{
     padding: 1rem 1.5rem;
     height: 100%;
     overflow-y: auto;
+    
 }
-=======
->>>>>>> 18d03d94de70638b1185fd0fd74ac56f180bf192
