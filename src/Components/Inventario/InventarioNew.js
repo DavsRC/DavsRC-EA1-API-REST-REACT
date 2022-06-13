@@ -1,6 +1,51 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { getUsuarios } from '../../Services/UsuarioService'
+import { getMarcas } from '../../Services/MarcasService'
+import { getTipos } from '../../Services/TiposService'
+import { getEstados } from '../../Services/EstadosService'
+
 
 export const InventarioNew = ({ handleOpenModal }) => {
+  const [usuarios, setUsuarios] = useState ([]);
+const [marcas, setMarcas] = useState ([]);
+const [tipos, setTipos] = useState ([]);
+const [estados, setEstados] = useState ([]);
+
+useEffect(async () => {
+  try{
+      const { data } = await getUsuarios();
+      setUsuarios(data);
+  } catch(error) {
+    console.log(error);
+  }
+}, []);
+
+useEffect(async () => {
+  try{
+      const { data } = await getMarcas();
+      setMarcas(data);
+  } catch(error) {
+    console.log(error);
+  }
+}, []);
+
+useEffect(async () => {
+  try{
+      const { data } = await getTipos();
+      setTipos(data);
+  } catch(error) {
+    console.log(error);
+  }
+}, []);
+
+useEffect(async () => {
+  try{
+      const { data } = await getEstados();
+      setEstados(data);
+  } catch(error) {
+    console.log(error);
+  }
+}, []);
   return (
     <div className="sideBar">
       <div className="container-fluiod">
