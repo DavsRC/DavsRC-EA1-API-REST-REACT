@@ -21,8 +21,8 @@ export const MarcaView = () => {
   listarMarcas();
 
   return (
-    <div className="container-fluid">
-    <div className="row row-cols-1 row-cols-md-2 g-4">
+    <div className="container">
+    <div className="mt-2 mb-2 row row-cols-1 row-cols-md-4 g-4">
         {
            marcas.map((marca) => {
             return <MarcaCard key= {marca._id} marca={marca}/>
