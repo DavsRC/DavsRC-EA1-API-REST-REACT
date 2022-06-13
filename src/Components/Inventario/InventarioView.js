@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getInventarios } from "../../Services/InventarioService";
 import { InventarioCard } from "./InventarioCard";
-import { InventariosNew } from "./InventariosNew";
+import { InventarioNew } from "./InventarioNew";
 
 export const InventarioView = () => {
   const [inventarios, setInventarios] = useState([]);
@@ -33,7 +33,7 @@ export const InventarioView = () => {
           );
         })}
       </div>
-      {openModal ? <InventariosNew /> : 
+      {openModal ? <InventarioNew handleOpenModal={handleOpenModal}/> : 
         (<button className="btn btn-primary fab" onClick={handleOpenModal}>
           <i className="fa-solid fa-plus"></i>
         </button>)
