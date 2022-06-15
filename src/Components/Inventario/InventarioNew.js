@@ -135,11 +135,13 @@ export const InventarioNew = ({ handleOpenModal }) => {
                 <label className="form-label">Usuario</label>
                 <select className="form-select">
                   <option value="">--Seleccione--</option>
-                  {
-                    usuarios.map(usuario => {
-                      return <option key={usuario._id} value={usuario._id}>{usuario.nombre}</option>
-                    })
-                  }
+                  {usuarios.map((usuario) => {
+                    return (
+                      <option key={usuario._id} value={usuario._id}>
+                        {usuario.nombre}
+                      </option>
+                    );
+                  })}
                 </select>
               </div>
             </div>
@@ -148,23 +150,46 @@ export const InventarioNew = ({ handleOpenModal }) => {
             <div className="col">
               <div className="mb-3">
                 <label className="form-label">Marca</label>
-                <input type="text" name="marca" className="form-control" />
+                <select className="form-select">
+                  <option value="">--Seleccione--</option>
+                  {marcas.map((marca) => {
+                    return (
+                      <option key={marca._id} value={marca._id}>
+                        {marca.nombre}
+                      </option>
+                    );
+                  })}
+                </select>
               </div>
             </div>
             <div className="col">
               <div className="mb-3">
                 <label className="form-label">Tipo</label>
-                <input type="text" name="tipoEquipo" className="form-control" />
+                <select className="form-select">
+                  <option value="">--Seleccione--</option>
+                  {tipos.map((tipo) => {
+                    return (
+                      <option key={tipo._id} value={tipo._id}>
+                        {tipo.nombre}
+                      </option>
+                    );
+                  })}
+                </select>
               </div>
             </div>
             <div className="col">
               <div className="mb-3">
                 <label className="form-label">Estado Equipo</label>
-                <input
-                  type="text"
-                  name="estadoEquipo"
-                  className="form-control"
-                />
+                <select className="form-select">
+                  <option value="">--Seleccione--</option>
+                  {estados.map((estado) => {
+                    return (
+                      <option key={estado._id} value={estado._id}>
+                        {estado.nombre}
+                      </option>
+                    );
+                  })}
+                </select>
               </div>
             </div>
           </div>
