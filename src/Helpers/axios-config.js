@@ -9,7 +9,7 @@ axiosConfig.interceptors.response.use(
         return response;
     },
     error => {
-        if(error && error.response && (error.response.status == 401 || error.response.status == 403)){
+        if(error && error.response && (error.response.status === 401 || error.response.status === 403)){
             window.location.pathname = '/';
         }
         return Promise.reject(error);

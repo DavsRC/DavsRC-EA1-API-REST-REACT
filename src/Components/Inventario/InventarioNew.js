@@ -1,51 +1,65 @@
 import React, { useState, useEffect } from "react";
-import { getUsuarios } from '../../Services/UsuarioService'
-import { getMarcas } from '../../Services/MarcasService'
-import { getTipos } from '../../Services/TiposService'
-import { getEstados } from '../../Services/EstadosService'
-
+import { getUsuarios } from "../../Services/UsuarioService";
+import { getMarcas } from "../../Services/MarcasService";
+import { getTipos } from "../../Services/TiposService";
+import { getEstados } from "../../Services/EstadosService";
 
 export const InventarioNew = ({ handleOpenModal }) => {
-  const [usuarios, setUsuarios] = useState ([]);
-const [marcas, setMarcas] = useState ([]);
-const [tipos, setTipos] = useState ([]);
-const [estados, setEstados] = useState ([]);
+  const [usuarios, setUsuarios] = useState([]);
+  const [marcas, setMarcas] = useState([]);
+  const [tipos, setTipos] = useState([]);
+  const [estados, setEstados] = useState([]);
 
-useEffect(async () => {
-  try{
+  const listarUsuarios = async () => {
+    try {
       const { data } = await getUsuarios();
       setUsuarios(data);
-  } catch(error) {
-    console.log(error);
-  }
-}, []);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    listarUsuarios();
+  }, []);
 
-useEffect(async () => {
-  try{
+  const listarMarcas = async () => {
+    try {
       const { data } = await getMarcas();
       setMarcas(data);
-  } catch(error) {
-    console.log(error);
-  }
-}, []);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-useEffect(async () => {
-  try{
+  useEffect(() => {
+    listarMarcas();
+  }, []);
+
+  const listarTipos = async () => {
+    try {
       const { data } = await getTipos();
       setTipos(data);
-  } catch(error) {
-    console.log(error);
-  }
-}, []);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-useEffect(async () => {
-  try{
+  useEffect(() => {
+    listarTipos();
+  }, []);
+
+  const listarEstados = async () => {
+    try {
       const { data } = await getEstados();
       setEstados(data);
-  } catch(error) {
-    console.log(error);
-  }
-}, []);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    listarEstados();
+  }, []);
   return (
     <div className="sideBar">
       <div className="container-fluiod">
@@ -53,7 +67,7 @@ useEffect(async () => {
           <div className="col">
             <div className="sidebar-header">
               <h3>Nuevo inventario</h3>
-              <i class="fa-solid fa-xmark" onClick={handleOpenModal}></i>
+              <i className="fa-solid fa-xmark" onClick={handleOpenModal}></i>
             </div>
           </div>
         </div>
@@ -79,7 +93,11 @@ useEffect(async () => {
             <div className="col">
               <div className="mb-3">
                 <label className="form-label">Descripcion</label>
-                <input type="text" name="descripcion" className="form-control" />
+                <input
+                  type="text"
+                  name="descripcion"
+                  className="form-control"
+                />
               </div>
             </div>
             <div className="col">
@@ -99,24 +117,30 @@ useEffect(async () => {
             <div className="col">
               <div className="mb-3">
                 <label className="form-label">Fecha Compra</label>
-                <input type="date" name="fechaCompra" className="form-control" />
+                <input
+                  type="date"
+                  name="fechaCompra"
+                  className="form-control"
+                />
               </div>
             </div>
             <div className="col">
               <div className="mb-3">
                 <label className="form-label">Precio</label>
-                <select className="form-select">
-                  <option selected>Open this select menu</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </select>
+                <input type="number" name="precio" className="form-control" />
               </div>
             </div>
             <div className="col">
               <div className="mb-3">
                 <label className="form-label">Usuario</label>
-                <input type="text" name="usuario" className="form-control" />
+                <select className="form-select">
+                  <option value="">--Seleccione--</option>
+                  {
+                    usuarios.map(usuario => {
+                      return <option key={usuario._id} value={usuario._id}>{usuario.nombre}</option>
+                    })
+                  }
+                </select>
               </div>
             </div>
           </div>
@@ -136,7 +160,11 @@ useEffect(async () => {
             <div className="col">
               <div className="mb-3">
                 <label className="form-label">Estado Equipo</label>
-                <input type="text" name="estadoEquipo" className="form-control" />
+                <input
+                  type="text"
+                  name="estadoEquipo"
+                  className="form-control"
+                />
               </div>
             </div>
           </div>
