@@ -9,6 +9,16 @@ export const InventarioNew = ({ handleOpenModal }) => {
   const [marcas, setMarcas] = useState([]);
   const [tipos, setTipos] = useState([]);
   const [estados, setEstados] = useState([]);
+  const [valoresForm, setValoresForm] = useState({});
+  const {
+    serial = "",
+    modelo = "",
+    descripcion = "",
+    color = "",
+    foto = "",
+    fechaCompra = "",
+    precio = "",
+  } = valoresForm;
 
   const listarUsuarios = async () => {
     try {
@@ -60,6 +70,11 @@ export const InventarioNew = ({ handleOpenModal }) => {
   useEffect(() => {
     listarEstados();
   }, []);
+
+  const handleOnChange = ({ target }) => {
+    const { name, value } = target;
+    setValoresForm({ ...valoresForm, [name]: value });
+  };
   return (
     <div className="sideBar">
       <div className="container-fluiod">
@@ -81,13 +96,25 @@ export const InventarioNew = ({ handleOpenModal }) => {
             <div className="col">
               <div className="mb-3">
                 <label className="form-label">Serial</label>
-                <input type="text" name="serial" className="form-control" />
+                <input
+                  type="text"
+                  name="serial"
+                  value={serial}
+                  onChange={(evento) => handleOnChange(evento)}
+                  className="form-control"
+                />
               </div>
             </div>
             <div className="col">
               <div className="mb-3">
                 <label className="form-label">Modelo</label>
-                <input type="text" name="modelo" className="form-control" />
+                <input
+                  type="text"
+                  name="modelo"
+                  value={modelo}
+                  onChange={(evento) => handleOnChange(evento)}
+                  className="form-control"
+                />
               </div>
             </div>
             <div className="col">
@@ -96,6 +123,8 @@ export const InventarioNew = ({ handleOpenModal }) => {
                 <input
                   type="text"
                   name="descripcion"
+                  value={descripcion}
+                  onChange={(evento) => handleOnChange(evento)}
                   className="form-control"
                 />
               </div>
@@ -103,7 +132,13 @@ export const InventarioNew = ({ handleOpenModal }) => {
             <div className="col">
               <div className="mb-3">
                 <label className="form-label">Color</label>
-                <input type="text" name="color" className="form-control" />
+                <input
+                  type="text"
+                  name="color"
+                  value={color}
+                  onChange={(evento) => handleOnChange(evento)}
+                  className="form-control"
+                />
               </div>
             </div>
           </div>
@@ -111,7 +146,13 @@ export const InventarioNew = ({ handleOpenModal }) => {
             <div className="col">
               <div className="mb-3">
                 <label className="form-label">Foto</label>
-                <input type="text" name="foto" className="form-control" />
+                <input
+                  type="text"
+                  name="foto"
+                  value={foto}
+                  onChange={(evento) => handleOnChange(evento)}
+                  className="form-control"
+                />
               </div>
             </div>
             <div className="col">
@@ -120,6 +161,8 @@ export const InventarioNew = ({ handleOpenModal }) => {
                 <input
                   type="date"
                   name="fechaCompra"
+                  value={fechaCompra}
+                  onChange={(evento) => handleOnChange(evento)}
                   className="form-control"
                 />
               </div>
@@ -127,7 +170,13 @@ export const InventarioNew = ({ handleOpenModal }) => {
             <div className="col">
               <div className="mb-3">
                 <label className="form-label">Precio</label>
-                <input type="number" name="precio" className="form-control" />
+                <input
+                  type="number"
+                  name="precio"
+                  value={precio}
+                  onChange={(evento) => handleOnChange(evento)}
+                  className="form-control"
+                />
               </div>
             </div>
             <div className="col">
