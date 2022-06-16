@@ -20,9 +20,9 @@ export const InventarioView = () => {
     listarInventarios();
   }, []);
 
-  const handleOpenModal = () =>{
-    setOpenModal(!openModal)
-  }
+  const handleOpenModal = () => {
+    setOpenModal(!openModal);
+  };
 
   return (
     <div className="container">
@@ -33,11 +33,16 @@ export const InventarioView = () => {
           );
         })}
       </div>
-      {openModal ? <InventarioNew handleOpenModal={handleOpenModal}/> : 
-        (<button className="btn btn-primary fab" onClick={handleOpenModal}>
+      {openModal ? (
+        <InventarioNew
+          handleOpenModal={handleOpenModal}
+          listarInventarios={listarInventarios}
+        />
+      ) : (
+        <button className="btn btn-primary fab" onClick={handleOpenModal}>
           <i className="fa-solid fa-plus"></i>
-        </button>)
-      }
+        </button>
+      )}
     </div>
   );
 };

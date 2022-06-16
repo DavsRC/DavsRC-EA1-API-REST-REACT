@@ -3,8 +3,10 @@ import { getUsuarios } from "../../Services/UsuarioService";
 import { getMarcas } from "../../Services/MarcasService";
 import { getTipos } from "../../Services/TiposService";
 import { getEstados } from "../../Services/EstadosService";
+import { crearInventarios } from "../../Services/InventarioService";
+import Swal from "sweetalert2";
 
-export const InventarioNew = ({ handleOpenModal }) => {
+export const InventarioNew = ({ handleOpenModal, listarInventarios }) => {
   const [usuarios, setUsuarios] = useState([]);
   const [marcas, setMarcas] = useState([]);
   const [tipos, setTipos] = useState([]);
@@ -79,6 +81,47 @@ export const InventarioNew = ({ handleOpenModal }) => {
     const { name, value } = target;
     setValoresForm({ ...valoresForm, [name]: value });
   };
+
+  const handleOnSubmit = async (e) => {
+    e.preventDefault();
+    const inventario = {
+      serial,
+      modelo,
+      descripcion,
+      color,
+      foto,
+      fechaCompra,
+      precio,
+      usuario: {
+        _id: usuario,
+      },
+      marca: {
+        _id: marca,
+      },
+      tipoEquipo: {
+        _id: tipo,
+      },
+      estadoEquipo: {
+        _id: estado,
+      },
+    };
+    try {
+      Swal.fire({
+        allowOutSideClick: false,
+        text: "Cargando...",
+      });
+      Swal.showLoading();
+      const { data } = await crearInventarios(inventario);
+      console.log(data);
+      Swal.close();
+      handleOpenModal();
+      listarInventarios();
+    } catch (error) {
+      console.log(error);
+      Swal.close();
+    }
+  };
+
   return (
     <div className="sideBar">
       <div className="container-fluiod">
@@ -95,7 +138,7 @@ export const InventarioNew = ({ handleOpenModal }) => {
             <hr />
           </div>
         </div>
-        <form>
+        <form onSubmit={(e) => handleOnSubmit(e)}>
           <div className="row">
             <div className="col">
               <div className="mb-3">
@@ -271,6 +314,11 @@ export const InventarioNew = ({ handleOpenModal }) => {
                   })}
                 </select>
               </div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col">
+              <button className="btn btn-primary">Guardar</button>
             </div>
           </div>
         </form>
