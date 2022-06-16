@@ -6,6 +6,7 @@ import { InventarioView } from './Components/Inventario/InventarioView'
 import { MarcaView } from './Components/Marcas/MarcaView'
 import { TipoView } from './Components/Tipos/TipoView'
 import { UsuarioView } from './Components/Usuarios/UsuarioView'
+import { InventarioUpdate } from "./Components/Inventario/InventarioUpdate";
 
 const App = () => {
     return <Router>
@@ -16,6 +17,7 @@ const App = () => {
         <Route exact path='/Marcas' component={ MarcaView } />
         <Route exact path='/Estados' component={ EstadoView } />
         <Route exact path='/Tipos' component={ TipoView } />
+        <Route exact path='/inventario/edit/:inventarioId' component={ InventarioUpdate } />
         <Redirect to="/" />
     </Switch>
     </Router>
