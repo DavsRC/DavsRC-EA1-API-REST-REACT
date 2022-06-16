@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { getInventarios } from "../../Services/InventarioService";
 import { InventarioCard } from "./InventarioCard";
 import { InventarioNew } from "./InventarioNew";
+import Swal from "sweetalert2";
 
 export const InventarioView = () => {
   const [inventarios, setInventarios] = useState([]);
@@ -9,10 +10,24 @@ export const InventarioView = () => {
 
   const listarInventarios = async () => {
     try {
+      Swal.fire({
+        allowOutSideClick: false,
+        text: "Cargando...",
+      });
+      Swal.showLoading();
       const { data } = await getInventarios();
       setInventarios(data);
+      Swal.close();
     } catch (error) {
       console.log(error);
+      Swal.close();
+      let mesaje;
+      if (error && error.response && error.response.data) {
+          mesaje= error.response.data;
+      }else{
+        mesaje = 'Hay un error, es necesario verificar los datos';
+      }
+      Swal.fire('Error', mesaje, 'Error');
     }
   };
 

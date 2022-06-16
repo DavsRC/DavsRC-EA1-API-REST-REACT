@@ -82,11 +82,17 @@ export const InventarioUpdate = () => {
 
   const getInventario = async () => {
     try {
+      Swal.fire({
+        allowOutSideClick: false,
+        text: "Cargando...",
+      });
+      Swal.showLoading();
       const { data } = await getInventariosId(inventarioId);
-      console.log(data);
       setInventario(data)
+      Swal.close();
     } catch (error) {
       console.log(error);
+      Swal.close();
     }
   };
 
@@ -152,7 +158,15 @@ export const InventarioUpdate = () => {
       Swal.close();
     } catch (error) {
       console.log(error);
+      console.log(error.response.data)
       Swal.close();
+      let mesaje;
+      if (error && error.response && error.response.data) {
+          mesaje= error.response.data;
+      }else{
+        mesaje = 'Hay un error, es necesario verificar los datos';
+      }
+      Swal.fire('Error', mesaje, 'Error');
     }
 
   };
