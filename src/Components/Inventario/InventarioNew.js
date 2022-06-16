@@ -18,6 +18,10 @@ export const InventarioNew = ({ handleOpenModal }) => {
     foto = "",
     fechaCompra = "",
     precio = "",
+    usuario,
+    marca,
+    tipo,
+    estado,
   } = valoresForm;
 
   const listarUsuarios = async () => {
@@ -97,6 +101,7 @@ export const InventarioNew = ({ handleOpenModal }) => {
               <div className="mb-3">
                 <label className="form-label">Serial</label>
                 <input
+                  required
                   type="text"
                   name="serial"
                   value={serial}
@@ -109,6 +114,7 @@ export const InventarioNew = ({ handleOpenModal }) => {
               <div className="mb-3">
                 <label className="form-label">Modelo</label>
                 <input
+                  required
                   type="text"
                   name="modelo"
                   value={modelo}
@@ -121,6 +127,7 @@ export const InventarioNew = ({ handleOpenModal }) => {
               <div className="mb-3">
                 <label className="form-label">Descripcion</label>
                 <input
+                  required
                   type="text"
                   name="descripcion"
                   value={descripcion}
@@ -133,6 +140,7 @@ export const InventarioNew = ({ handleOpenModal }) => {
               <div className="mb-3">
                 <label className="form-label">Color</label>
                 <input
+                  required
                   type="text"
                   name="color"
                   value={color}
@@ -147,7 +155,8 @@ export const InventarioNew = ({ handleOpenModal }) => {
               <div className="mb-3">
                 <label className="form-label">Foto</label>
                 <input
-                  type="text"
+                  required
+                  type="url"
                   name="foto"
                   value={foto}
                   onChange={(evento) => handleOnChange(evento)}
@@ -159,6 +168,7 @@ export const InventarioNew = ({ handleOpenModal }) => {
               <div className="mb-3">
                 <label className="form-label">Fecha Compra</label>
                 <input
+                  required
                   type="date"
                   name="fechaCompra"
                   value={fechaCompra}
@@ -171,6 +181,7 @@ export const InventarioNew = ({ handleOpenModal }) => {
               <div className="mb-3">
                 <label className="form-label">Precio</label>
                 <input
+                  required
                   type="number"
                   name="precio"
                   value={precio}
@@ -182,7 +193,12 @@ export const InventarioNew = ({ handleOpenModal }) => {
             <div className="col">
               <div className="mb-3">
                 <label className="form-label">Usuario</label>
-                <select className="form-select">
+                <select
+                  className="form-select"
+                  onChange={(evento) => handleOnChange(evento)}
+                  name="usuario"
+                  value={usuario}
+                >
                   <option value="">--Seleccione--</option>
                   {usuarios.map((usuario) => {
                     return (
@@ -199,7 +215,12 @@ export const InventarioNew = ({ handleOpenModal }) => {
             <div className="col">
               <div className="mb-3">
                 <label className="form-label">Marca</label>
-                <select className="form-select">
+                <select
+                  className="form-select"
+                  onChange={(evento) => handleOnChange(evento)}
+                  name="marca"
+                  value={marca}
+                >
                   <option value="">--Seleccione--</option>
                   {marcas.map((marca) => {
                     return (
@@ -214,7 +235,12 @@ export const InventarioNew = ({ handleOpenModal }) => {
             <div className="col">
               <div className="mb-3">
                 <label className="form-label">Tipo</label>
-                <select className="form-select">
+                <select
+                  className="form-select"
+                  onChange={(evento) => handleOnChange(evento)}
+                  name="tipo"
+                  value={tipo}
+                >
                   <option value="">--Seleccione--</option>
                   {tipos.map((tipo) => {
                     return (
@@ -229,7 +255,12 @@ export const InventarioNew = ({ handleOpenModal }) => {
             <div className="col">
               <div className="mb-3">
                 <label className="form-label">Estado Equipo</label>
-                <select className="form-select">
+                <select
+                  className="form-select"
+                  onChange={(evento) => handleOnChange(evento)}
+                  name="estado"
+                  value={estado}
+                >
                   <option value="">--Seleccione--</option>
                   {estados.map((estado) => {
                     return (
