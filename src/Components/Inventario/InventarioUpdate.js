@@ -100,15 +100,15 @@ export const InventarioUpdate = () => {
         setValoresForm({ 
             serial: inventario.serial,
             modelo: inventario.modelo,
-            descripcion: inventario.escripcion,
+            descripcion: inventario.descripcion,
             color: inventario.color,
             foto: inventario.foto,
             fechaCompra: inventario.fechaCompra,
             precio: inventario.precio,
             usuario: inventario.usuario,
             marca: inventario.marca,
-            tipo: inventario.tipo,
-            estado: inventario.estado,            
+            tipo: inventario.tipoEquipo,
+            estado: inventario.estadoEquipo,            
         });
   },[ inventario ]);
 
