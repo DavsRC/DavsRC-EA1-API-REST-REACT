@@ -37,7 +37,7 @@ export const TipoView = () => {
           listarTipos={listarTipos}
         />
       ) : (
-        <button className="btn btn-primary fab" onClick={handleOpenModal}>
+        <button className="btn btn-light fab" onClick={handleOpenModal}>
           <i className="fa-solid fa-plus"></i>
         </button>
       )}

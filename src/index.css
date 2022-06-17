@@ -4,7 +4,7 @@ body{
     "Ubuntu", "Cantarell", "Fire Sans", "Droid Sans", "Helvetica Neue", Sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: rgb(255, 236, 236);
+    background-color: rgb(174, 158, 158);
 }
 
 .card{
@@ -19,10 +19,6 @@ body{
 .card-img-top{
     height: 200px;
   }
-
-.imginv{
-    height: 300px;
-}
 
 .fab{
     border-radius: 100%;
@@ -55,4 +51,8 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.bbb a{
+    text-decoration: none;
 }

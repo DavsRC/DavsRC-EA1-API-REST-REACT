@@ -14,10 +14,11 @@ const{inventario} = props;
           <hr />
           <p className="card-title">Serial: {inventario.serial}</p>
           <p className="card-title">Marca: {inventario.marca.nombre}</p>
-          <p className="card-title">Nombre: {inventario.usuario.nombre}</p>
-          <p className="cart-text">
-          <Link to ={`inventario/edit/${inventario._id}`}>Ver más...</Link>
-          </p>
+          <p
+           className="card-title">Nombre: {inventario.usuario.nombre}</p>
+          <button className="btn btn-outline-secondary bbb">
+          <Link to ={`inventario/edit/${inventario._id}`}>Ver más</Link>
+          </button>
         </div>
       </div>
     </div>

@@ -47,7 +47,7 @@ export const EstadosNew = ({ handleOpenModal, listarEstados }) => {
         <div className="row">
           <div className="col">
             <div className="sidebar-header">
-              <h3>Nueva Marca</h3>
+              <h3>Nuevo Estado</h3>
               <i className="fa-solid fa-xmark" onClick={handleOpenModal}></i>
             </div>
           </div>
